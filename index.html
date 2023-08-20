@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KI-Karina</title>
+    <link rel="stylesheet" href="Rest/style.css" />
+
+    <script src="Rest/tr.js" defer></script>
+    <script src="Rest/canvas.js" defer></script>
+    <script src="Rest/interface.js" defer></script>
+    <script src="Rest/karina.js" defer></script>
+    <script src="Rest/main.js" defer></script>
+  </head>
+  <body>
+    <div id="container">
+      <div class="teil" id="header">
+        <h1>KI-Karina</h1>
+      </div>
+      <div class="teil" id="weristkarina">
+        <h2>Wer ist Karina?</h2>
+        <p class="hinweis">
+          Karina ist eine k&uuml;nstliche Intelligenz, die Ihre gezeichneten
+          Bilder erkennen kann. Sie k&ouml;nnen w&auml;hlen, zwischen was Karina
+          unterscheiden soll. Anschlie&szlig;end m&uuml;ssen Sie Karina lernen
+          lassen, indem Sie zuerst einige Beispielbilder zeichnen und dann etwas
+          Geduld bewahren, w&auml;hrend Karina trainiert. Danach k&ouml;nnen Sie
+          probieren, ob Karina tats&auml;chlich in der Lage dazu ist, Ihre
+          Bilder zu erkennen. <br />&nbsp;<br />Viel Spa&szlig;!
+        </p>
+        <div class="btn weiter" onclick="Weiter(2)">Weiter</div>
+      </div>
+      <div class="teil" id="klassen">
+        <h2>1. Klassen:</h2>
+        <span class="hinweis">Zwischen was soll Karina unterscheiden?</span>
+        <ul class="kls">
+          <li class="kl">
+            <input type="text" value="Objekt1" class="kli" />
+            <span class="klEntf">Klasse entfernen</span>
+          </li>
+          <li class="kl">
+            <input type="text" value="Objekt2" class="kli" />
+            <span class="klEntf">Klasse entfernen</span>
+          </li>
+          <li class="kl neuekl" onclick="NeueKl()">
+            <p class="klp">neue Klasse</p>
+          </li>
+        </ul>
+        <div class="btn weiter" onclick="Weiter(3)">Weiter</div>
+      </div>
+      <div class="teil" id="trb">
+        <h2>2. Beispielbilder erstellen:</h2>
+        <p class="hinweis">
+          Erstellen Sie einige Trainingsbeispiele, in denen Ihre oben genannten
+          Klassen in unterschiedlichen Positionen und Formen zu sehen sind,
+          indem Sie mit der Maus auf die schwarze Fl&auml;che zeichnen.
+          Empfehlenswert sind etwa drei bis f&uuml;nf Beispiele pro Klasse,
+          damit Karina mehrere verschiedene Darstellungen der einzelnen Klassen
+          erkennen kann.
+          <br />
+          &nbsp;
+        </p>
+        <div class="trbContainer">
+          <canvas class="cv" id="Canvas1"></canvas>
+          <div class="zeichentools">
+            <div class="clear" onclick="NeuZeichnen(0)">Neu zeichnen</div>
+            <div class="pinsel">
+              <span class="pinselst">Pinselst&auml;rke: </span>
+              <input
+                type="range"
+                min="1"
+                max="200"
+                value="30"
+                class="strokeSlider"
+              />
+            </div>
+          </div>
+          <div class="antwort">
+            <p class="hinweis" id="waehlenHinweis">
+              Was ist auf dem Bild zu sehen? (Zutreffendes anklicken)
+            </p>
+            <ul class="waehlen">
+              <!-- <li>Objekte...</li> -->
+            </ul>
+          </div>
+          <span class="btn hinzu" onclick="TrHinzu(false)"
+            >Trainingsbeispiel hinzuf&uuml;gen</span
+          >
+        </div>
+        <div class="btn weiter" onclick="Weiter(4)">Weiter</div>
+      </div>
+      <div class="teil" id="training">
+        <h2>3. Trainieren:</h2>
+        <p class="hinweis">
+          Damit Karina Ihre Bilder erkennen kann, muss sie eine Weile
+          trainieren. Dieser Vorgang kann etwas dauern.
+        </p>
+        <div class="btn trainieren" onclick="TrainingStarten()">Trainieren</div>
+        <p class="hinweis">
+          Der Graph zeigt die Genauigkeit von Karina &uuml;ber Zeit. Steigt der
+          Graph sehr hoch, bedeutet das, Karina schl&auml;gt sich sehr gut!
+          <br />
+          Falls Sie es kaum erwarten k&ouml;nnen, Karinas St&auml;rke zu testen,
+          oder falls Sie keine Zeit mehr haben, l&auml;nger zu warten,
+          k&ouml;nnen Sie jederzeit das Training abbrechen.
+        </p>
+        <div class="btn abbrechen" onclick="Abbruch()">Abbrechen</div>
+        <div class="trccon">
+          <span class="startacc">Start:</span>
+          <span class="endacc">aktuell:</span>
+          <canvas class="trc"></canvas>
+        </div>
+        <p class="hinweis">
+          Falls Sie Karina noch etwas l&auml;nger trainieren lassen
+          m&ouml;chten, k&ouml;nnen Sie gerne noch einmal auf
+          &quot;Trainieren&quot; klicken. Sie k&ouml;nnen auch vorher noch
+          weitere Trainingsbeispiele hinzuf&uuml;gen, wenn Sie wollen.
+        </p>
+        <div class="btn weiter" onclick="Weiter(5)">Weiter</div>
+      </div>
+      <div class="teil" id="prb">
+        <h2>4. Probieren</h2>
+        <p class="hinweis">
+          Nachdem Karina hoffentlich lange genug trainiert hat, um Ihre Bilder
+          den jeweiligen Klassen zuzuordnen, k&ouml;nnen Sie nun ihre
+          F&auml;higkeiten auf die Probe stellen! <br />
+          Zeichnen Sie dazu wieder auf die vorgesehene Fl&auml;che und
+          dr&uuml;cken Sie auf &quot;Probieren&quot;.
+        </p>
+        <div class="prbContainer">
+          <canvas class="cv" id="Canvas2"></canvas>
+          <div class="zeichentools">
+            <div class="clear" onclick="NeuZeichnen(1)">Neu zeichnen</div>
+            <div class="pinsel">
+              <span class="pinselst">Pinselst&auml;rke: </span>
+              <input
+                type="range"
+                min="1"
+                max="200"
+                value="30"
+                class="strokeSlider"
+              />
+            </div>
+          </div>
+          <div class="btn probieren" onclick="Probieren(CanvasImg(1))">
+            Probieren!
+          </div>
+          <div class="karinaantcon invis">
+            <p class="hinweis">Karina glaubt:&nbsp;</p>
+            <span class="karinaant">ANTWORT (xx% sicher)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

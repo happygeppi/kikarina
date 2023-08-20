@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Maven Pro, Arial;
+}
+
+:root {
+  --hue: 260;
+  --sat: 90%;
+  --shue: 55;
+  --ssat: 65%;
+
+  --lighterr: hsl(var(--hue), var(--sat), 90%);
+  --lighter: hsl(var(--hue), var(--sat), 80%);
+  --light: hsl(var(--hue), var(--sat), 70%);
+  --prime: hsl(var(--hue), var(--sat), 55%);
+  --dark: hsl(var(--hue), var(--sat), 30%);
+  --darker: hsl(var(--hue), var(--sat), 20%);
+  --darkerr: hsl(var(--hue), var(--sat), 5%);
+
+  --secondL: hsl(var(--shue), var(--ssat), 65%);
+  --second: hsl(var(--shue), var(--ssat), 50%);
+
+  --gap: 10px;
+}
+
+body {
+  background: var(--dark);
+  padding: var(--gap);
+  display: grid;
+}
+
+::selection {
+  background-color: var(--second);
+}
+.kl ::selection {
+  background-color: var(--light);
+}
+
+#container {
+  place-self: center;
+  display: flex;
+  flex-direction: column;
+  width: max(80%, 550px);
+}
+
+.teil {
+  position: relative;
+  text-align: center;
+  background:  var(--lighter);
+  box-shadow: 0 0 6px var(--darkerr);
+  border-radius: 15px 0 15px 0;
+  padding: 20px 15%;
+  margin: var(--gap) 0;
+}
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.hinweis {
+  font-size: 1.1rem;
+  font-style: italic;
+  text-align: justify;
+  margin-bottom: 10px;
+  height: fit-content;
+}
+.btn {
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background-color: var(--second);
+  box-shadow: 0 2px 5px var(--darker);
+  transition: background-color 300ms;
+}
+.btn:hover {
+  background-color: var(--secondL);
+}
+.weiter {
+  position: relative;
+  font-size: medium;
+  font-style: italic;
+  margin-bottom: 20px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: fit-content;
+  width: fit-content;
+}
+
+#header {
+  height: 120px;
+  background: var(--prime);
+  display: grid;  
+}
+#header h1 {
+  text-align: center;
+  color: white;
+  text-shadow: 3px 4px 8px var(--darker);
+  font-size: 64px;
+  font-weight: 500;
+  margin: auto;
+}
+
+#klassen {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+.kls {
+  margin: 0 50% 25px 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 300px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* col werden mehr wenn >3 Klassen */
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.kl {
+  list-style-type: none;
+  display: grid;
+  align-items: center;  
+  border-radius: 8px;
+  background: var(--second);
+  box-shadow: 0 3px 5px var(--darker);
+}
+.kli {
+  position: relative;
+  background: var(--secondL);
+  text-align: center;
+  width: 80%;
+  font-size: larger;
+  font-weight: bold;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.klEntf {
+  visibility: hidden;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  text-align: center;
+  font-size: smaller;
+  color: darkred;
+  cursor: pointer;
+}
+.kl:hover .klEntf {
+  visibility: visible;
+}
+.klEntf:hover {
+  font-weight: bold;
+}
+.neuekl {
+  font-style: italic;
+  font-weight: normal;
+  font-size: smaller;
+  background: var(--lighterr);
+  cursor: pointer;
+  transition: opacity 1s;
+}
+.neuekl:hover {
+  background: var(--lighter);
+}
+.klp {
+  position: relative;
+  text-align: center;
+  width: fit-content;
+  font-size: larger;
+  font-weight: bold;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#trb, #prb {
+  display: flex;
+  flex-direction: column;
+}
+.trbContainer, .prbContainer {
+  position: relative;
+  width: 512px;
+  place-self: center;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  align-items: center;
+}
+.cv {
+  position: relative;
+  place-self: center;
+  margin-bottom: 10px;
+  outline: 5px var(--prime) solid;
+  box-shadow: 0 0 5px 5px var(--prime);
+}
+.zeichentools {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  width: 100%;
+}
+.strokeSlider {
+  position: relative;
+  transform: translateY(20%);
+}
+.pinsel {
+  background: var(--lighterr);
+  padding: 5px;
+  text-align: center;
+  border-radius: 8px;
+}
+.clear {
+  background: var(--lighterr);
+  padding: 5px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.antwort {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.antwort ul {
+  place-self: center;
+}
+#waehlenHinweis {
+  visibility: hidden;
+}
+.waehlen {
+  margin: 5px;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.waehlen li {
+  list-style-type: none;
+  width: max-content;
+  margin: 0 0 5px 5px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: hsl(0, 40%, 70%);
+}
+.waehlen li.gewaehlt {
+  background-color: hsl(120, 40%, 65%);
+  outline: 2px hsl(120, 40%, 40%) solid;
+}
+.hinzu, .probieren {
+  position: relative;
+  background-color: var(--second);
+  padding: 5px;
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px var(--darker);
+  transition: background-color 300ms;
+}
+.hinzu:hover, .probieren:hover {
+  background-color: var(--secondL);
+}
+
+#training {
+  display: flex;
+  flex-direction: column;
+}
+.trainieren {
+  position: relative;
+  place-self: center;
+  background: var(--second);
+  width: fit-content;
+  margin: 10px 0;
+}
+.abbrechen {
+  place-self: center;
+  width: fit-content;
+  margin: 10px 0;
+}
+.trccon {
+  position: relative;
+  place-self: center;
+  height: 200px;
+  width: 400px;
+  margin: 10px 0;
+  outline: 2px var(--darker) solid;
+}
+.trc {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.startacc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 5px;
+}
+.endacc {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 5px;
+}
+
+#prb {
+  display: flex;
+  flex-direction: column;
+}
+.probieren {
+  margin: 15px 0;
+}
+.invis {
+  visibility: hidden;
+}
+.karinaantcon {
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+}
+.karinaantcon .hinweis {
+  margin-bottom: 0 !important;
+}
+.karinaant {
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
